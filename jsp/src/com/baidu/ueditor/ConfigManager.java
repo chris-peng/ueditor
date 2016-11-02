@@ -132,20 +132,20 @@ public final class ConfigManager {
 				conf.put( "allowFiles", this.getArray( "imageManagerAllowFiles" ) );
 				conf.put( "dir", this.jsonConfig.getString( "imageManagerListPath" ) );
 				conf.put( "count", this.jsonConfig.getInt( "imageManagerListSize" ) );
-				conf.put( "urlPrefix", this.jsonConfig.getString( "imageUrlPrefix" ) );
+				conf.put( "urlPrefix", this.jsonConfig.getString( "imageManagerUrlPrefix" ) );
 				break;
 				
 			case ActionMap.LIST_FILE:
 				conf.put( "allowFiles", this.getArray( "fileManagerAllowFiles" ) );
 				conf.put( "dir", this.jsonConfig.getString( "fileManagerListPath" ) );
 				conf.put( "count", this.jsonConfig.getInt( "fileManagerListSize" ) );
-				conf.put( "urlPrefix", this.jsonConfig.getString( "fileUrlPrefix" ) );
+				conf.put( "urlPrefix", this.jsonConfig.getString( "fileManagerUrlPrefix" ) );
 				break;
 				
 		}
 		
 		conf.put( "savePath", savePath );
-		String storeRootPath = this.jsonConfig.optString("storeRootPath");
+		String storeRootPath = PathFormat.format(this.jsonConfig.optString("storeRootPath"));
 		if(storeRootPath != null && !"".equals(storeRootPath)){
 			conf.put( "rootPath", storeRootPath );
 		}else{

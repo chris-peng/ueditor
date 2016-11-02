@@ -17,14 +17,12 @@ public class FileManager {
 
 	private String dir = null;
 	private String rootPath = null;
-	private String urlPrefix = null;
 	private String[] allowFiles = null;
 	private int count = 0;
 	
 	public FileManager ( Map<String, Object> conf ) {
 
 		this.rootPath = (String)conf.get( "rootPath" );
-		this.urlPrefix = (String) conf.get("urlPrefix");
 		this.dir = this.rootPath + (String)conf.get( "dir" );
 		this.allowFiles = this.getAllowFiles( conf.get("allowFiles") );
 		this.count = (Integer)conf.get( "count" );
@@ -83,9 +81,9 @@ public class FileManager {
 	
 	private String getPath ( File file ) {
 		
-		String path = file.getAbsolutePath().replaceAll("\\\\", "/");
+		String path = PathFormat.format(file.getAbsolutePath());
 		
-		return path.replace( this.rootPath, urlPrefix + "/" );
+		return path.replace( this.rootPath, "/" );
 		
 	}
 	
