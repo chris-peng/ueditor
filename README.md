@@ -1,4 +1,4 @@
-修改版，原版参见https://github.com/fex-team/ueditor
+修改版，原版见https://github.com/fex-team/ueditor
 ===
 修改如下：
 
